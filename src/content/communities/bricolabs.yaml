@@ -1,4 +1,18 @@
-name: "Bricolabs"
-description: "Laboratorio de tecnoloxías abertas."
-logo: "https://github.com/brico-labs.png"
-tags: ["hardware", "software", "open source"]
+name: BricoLabs
+description: BricoLabs es una asociación basada en hardware abierto que reúne semanalmente a todos los que quieran colaborar en la construcción de todo tipo de gadgets movidos por la curiosidad y el aprendizaje.
+website: https://www.bricolabs.cc
+logo: https://www.bricolabs.cc/wiki/_media/guias/bricolabs_logo_landscape_low.png?w=400&tok=e357cd
+socials:
+  - name: Twitter
+    url: https://x.com/Brico_Labs
+  - name: BlueSky
+    url: https://bsky.app/profile/bricolabs.bsky.social
+  - name: Mastodon
+    url: https://bsky.app/profile/bricolabs.bsky.social
+  - name: GitHub
+    url: https://github.com/brico-labs
+tags: [3dprinting, impresion3d, ciencia, electronica, hardwaremaker, makerspace, arduino, hackerspace, reciclaxe, taller]
+technologies: [Arduino, ESP32, Marlin, Klipper, Cura, PrusaSlicer, Electrónica, Radio, LoRa, Meshtastic]
+meetingFrequency: Semanal
+contactEmail: contacto@bricolabs.cc
+
