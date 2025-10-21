@@ -4,6 +4,22 @@ date: 2025-10-17T18:00:00.000Z
 duration: 3h30min
 location: Museo Domus A Coruña
 rsvpLink: https://www.bricolabs.cc/?nota=mandar-correo-a-contacto-arroba-bricolabs-punto-cc
-tags: [Arduino, 3dprinting, robótica, hardware, maker, hackerspace, makerspace, fablab, artesania, manualidades, diy, radio, radioaficion, robotica, taller]
-community: gpul
-
+tags:
+  [
+    Arduino,
+    3dprinting,
+    robótica,
+    hardware,
+    maker,
+    hackerspace,
+    makerspace,
+    fablab,
+    artesania,
+    manualidades,
+    diy,
+    radio,
+    radioaficion,
+    robotica,
+    taller,
+  ]
+community: bricolabs
