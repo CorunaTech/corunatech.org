@@ -1,0 +1,12 @@
+# CODEOWNERS
+#
+# Este ficheiro define quen revisa automaticamente as Pull Requests
+# baseándose nos ficheiros modificados.
+#
+# Máis información: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Propietarios por defecto para todo o código
+* @corunatech/web-code
+
+# Propietarios do contido (comunidades e eventos)
+/src/content/ @corunatech/web-content

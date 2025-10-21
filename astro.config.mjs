@@ -8,8 +8,8 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jorgeteixe.github.io',
-  base: '/corunatech',
+  site: 'https://corunatech.org',
+  base: '/',
   vite: {
     plugins: [tailwindcss()]
   },

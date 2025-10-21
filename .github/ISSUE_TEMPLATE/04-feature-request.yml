@@ -1,0 +1,37 @@
+name: Solicitude de Funcionalidade
+description: Suxire unha nova funcionalidade ou mellora para a web de CoruñaTech
+title: '[FEATURE] '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazas por suxerir unha nova funcionalidade!
+        Isto axúdanos a mellorar CoruñaTech para toda a comunidade.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrición da funcionalidade
+      description: Describe a funcionalidade ou mellora que che gustaría ver
+      placeholder: 'Que funcionalidade che gustaría que se engadise? Por que sería útil?'
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Caso de uso
+      description: Explica como usarías esta funcionalidade
+      placeholder: 'Describe un escenario no que esta funcionalidade sería útil'
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: Tes algunha alternativa ou solución temporal en mente?
+      placeholder: 'Describe alternativas que consideres ou solucións temporais que esteas a usar'
+    validations:
+      required: false

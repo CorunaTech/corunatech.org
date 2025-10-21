@@ -14,5 +14,5 @@ Non hai eventos programados para a próxima semana.
 
 {{/if}}
 
-Máis información: https://jorgeteixe.github.io/corunatech
-#CoruñaTech #EventosGalicia
+Máis información: https://corunatech.org
+#CoruñaTech #EventosCoruña

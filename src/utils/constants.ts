@@ -1,14 +1,14 @@
 export const SITE_CONFIG = {
-  DEFAULT_IMAGE: '/corunatech/placeholder.png',
-  BASE_PATH: '/corunatech',
+  DEFAULT_IMAGE: '/placeholder.png',
+  BASE_PATH: '',
   LOCALE: 'gl'
 } as const
 
 export const FAVICON_PATHS = {
-  APPLE_TOUCH: '/corunatech/apple-touch-icon.png',
-  FAVICON_32: '/corunatech/favicon-32x32.png',
-  FAVICON_16: '/corunatech/favicon-16x16.png',
-  MANIFEST: '/corunatech/site.webmanifest'
+  APPLE_TOUCH: '/apple-touch-icon.png',
+  FAVICON_32: '/favicon-32x32.png',
+  FAVICON_16: '/favicon-16x16.png',
+  MANIFEST: '/site.webmanifest'
 } as const
 
 export const THEME_CONFIG = {

@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,10 +21,10 @@ jobs:
         run: |
           # Get the list of changed files in the PR
           PR_NUMBER="${{ github.event.pull_request.number }}"
-          
+
           # Find event YAML file added in this PR
           EVENT_FILE=$(gh pr view $PR_NUMBER --json files --jq '.files[].path' | grep "src/content/events/.*\.yaml$" | head -1)
-          
+
           if [ -n "$EVENT_FILE" ]; then
             echo "event_file=$EVENT_FILE" >> $GITHUB_OUTPUT
             echo "Found event file: $EVENT_FILE"
@@ -35,15 +35,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Add event to Google Calendar (placeholder)
-        run: |
-          echo "TODO: Add event to Google Calendar"
-          echo "Event file: ${{ steps.get-event.outputs.event_file }}"
-          echo "PR: ${{ github.event.pull_request.html_url }}"
-          echo "Title: ${{ github.event.pull_request.title }}"
-          
-          # Future implementation would:
-          # 1. Parse the YAML file
-          # 2. Extract event details (title, date, location, etc.)
-          # 3. Use Google Calendar API to create event
-          # 4. Potentially comment back on the PR with calendar link
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install js-yaml
+
+      - name: Send event webhook
+        uses: actions/github-script@v7
+        env:
+          EVENT_FILE: ${{ steps.get-event.outputs.event_file }}
+          WEBHOOK_URL: ${{ secrets.EVENT_WEBHOOK_URL }}
+        with:
+          script: |
+            const script = require('./.github/scripts/send-event-webhook.cjs')
+            await script({core})

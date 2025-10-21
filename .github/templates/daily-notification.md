@@ -10,5 +10,5 @@
 
 {{/each}}
 
-Máis información: https://jorgeteixe.github.io/corunatech
+Máis información: https://corunatech.org
 #CoruñaTech #EventosHoxe
