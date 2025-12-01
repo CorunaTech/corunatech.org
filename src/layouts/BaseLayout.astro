@@ -70,8 +70,10 @@ const imageUrl = buildImageUrl(siteUrl, image)
   </head>
   <body>
     <EventBanner />
-    <slot name="header" />
-    <slot />
+    <div class="layout-content">
+      <slot name="header" />
+      <slot />
+    </div>
     <Footer />
   </body>
 </html>

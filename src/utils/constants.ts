@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  DEFAULT_IMAGE: '/placeholder.png',
+  DEFAULT_IMAGE: '/social-share.png',
   BASE_PATH: '',
   LOCALE: 'gl'
 } as const
