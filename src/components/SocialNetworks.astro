@@ -1,4 +1,6 @@
 ---
+import lighthouseTechImage from '../assets/lighthouse-tech.png'
+import corunatechLogoImage from '../assets/logo.png'
 import '../styles/components/SocialNetworks.css'
 ---
 
@@ -25,9 +27,12 @@ import '../styles/components/SocialNetworks.css'
     <div class="social-networks-images">
       <div class="social-networks-image large-image">
         <img
-          src="/src/assets/lighthouse-tech.png"
+          src={lighthouseTechImage.src}
+          width={lighthouseTechImage.width}
+          height={lighthouseTechImage.height}
           alt="Faro tecnológico con personas y conexiones representando la comunidad tech de A Coruña"
           class="lighthouse-illustration"
+          loading="lazy"
         />
       </div>
       <div class="social-networks-image small-image">
@@ -35,9 +40,12 @@ import '../styles/components/SocialNetworks.css'
           class="corunatech-logo-sticker sticker-iridescent iridescent-effect"
         >
           <img
-            src="/src/assets/logo.png"
+            src={corunatechLogoImage.src}
+            width={corunatechLogoImage.width}
+            height={corunatechLogoImage.height}
             alt="CoruñaTech - Comunidades tecnológicas de A Coruña"
             class="corunatech-logo"
+            loading="lazy"
           />
         </div>
       </div>
