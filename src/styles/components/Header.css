@@ -10,7 +10,9 @@
   padding: var(--spacing-element) 0;
   background-color: var(--bg-main);
   backdrop-filter: blur(8px);
-  transition: padding 0.3s ease;
+  transition: padding 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .header-inner {
@@ -175,5 +177,12 @@
 
   .header.is-compact .header-inner {
     gap: 1rem;
+  }
+
+  .header.is-released {
+    transform: translateY(-110%);
+    opacity: 0;
+    backdrop-filter: none;
+    pointer-events: none;
   }
 }
