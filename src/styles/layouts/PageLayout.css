@@ -3,11 +3,16 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  flex: 1 0 auto;
+  width: min(100%, var(--layout-max-width));
+  margin: 0 auto;
+  padding: 0 var(--layout-horizontal-padding);
 }
 
 /* Mobile responsive adjustments */
 @media (max-width: 767px) {
   .page-layout {
-    padding-top: 2rem;
+    padding: 2rem var(--layout-horizontal-padding);
+    gap: 2rem;
   }
 }

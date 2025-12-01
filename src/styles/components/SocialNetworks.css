@@ -20,6 +20,14 @@
   text-align: center;
 }
 
+.social-networks-subtitle {
+  font-size: var(--text-size-subtitle);
+  line-height: 1.75rem;
+  color: var(--text-body);
+  max-width: 48rem;
+  margin: 0;
+}
+
 .social-networks-handle {
   font-size: var(--text-size-title);
   line-height: 1;
