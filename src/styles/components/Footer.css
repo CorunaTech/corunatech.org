@@ -8,7 +8,9 @@
 }
 
 .footer-content {
-  margin: 0 auto;
+  margin: 0;
+  width: 100%;
+  padding: 0 var(--layout-horizontal-padding);
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -14,3 +14,8 @@
   background-color: var(--bg-dark);
   color: var(--text-inverse);
 }
+
+.clear-stickers-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}

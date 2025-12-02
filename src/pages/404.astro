@@ -1,0 +1,21 @@
+---
+import PageLayout from '../layouts/PageLayout.astro'
+import '../styles/pages/404.css'
+---
+
+<PageLayout
+  title="Páxina non atopada | CoruñaTech"
+  description="A páxina que buscas non existe. Volve ao inicio para seguir descubrindo as comunidades e eventos tecnolóxicos da Coruña."
+>
+  <section class="not-found">
+    <div class="not-found__container">
+      <span class="not-found__code" aria-hidden="true">404</span>
+      <h1 class="not-found__title">Ups! Non atopamos esta páxina.</h1>
+      <p class="not-found__description">
+        Pode que o enlace estea desactualizado ou que a páxina fose movida.
+        Volve ao inicio para continuar conectado coa comunidade tech da Coruña.
+      </p>
+      <a class="not-found__button" href="/">Volver ao inicio</a>
+    </div>
+  </section>
+</PageLayout>

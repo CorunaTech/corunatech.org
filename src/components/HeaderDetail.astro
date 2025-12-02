@@ -1,21 +1,39 @@
 ---
 import corunaTechLogo from '../assets/logo.svg?raw'
-import ThemeToggle from './ThemeToggle.astro'
 import '../styles/components/HeaderDetail.css'
 ---
 
 <header class="header-detail">
-  <a
-    href="/"
-    aria-current="page"
-    aria-label="home"
-    class="header-detail-logo-link"
-  >
-    <div class="header-detail-logo" set:html={corunaTechLogo} />
-  </a>
-  <div class="header-detail-right">
-    <div class="header-detail-theme-toggle">
-      <ThemeToggle />
-    </div>
+  <div class="header-detail-inner">
+    <a
+      href="/"
+      aria-current="page"
+      aria-label="home"
+      class="header-detail-logo-link"
+    >
+      <div class="header-detail-logo" set:html={corunaTechLogo} />
+    </a>
   </div>
 </header>
+
+<script>
+  const headerDetail = document.querySelector('.header-detail')
+  const SCROLL_OFFSET = 40
+
+  const toggleCompactDetailHeader = () => {
+    if (!headerDetail) {
+      return
+    }
+
+    if (window.scrollY > SCROLL_OFFSET) {
+      headerDetail.classList.add('is-compact')
+    } else {
+      headerDetail.classList.remove('is-compact')
+    }
+  }
+
+  toggleCompactDetailHeader()
+  window.addEventListener('scroll', toggleCompactDetailHeader, {
+    passive: true
+  })
+</script>

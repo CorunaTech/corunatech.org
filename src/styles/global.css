@@ -20,10 +20,7 @@ html {
   /* --licorice: #230903; */
   /* --ebony: #656256; */
   /* --sandy-brown: #ee964b; */
-}
 
-[data-theme='light'] {
-  /* Light Theme */
   /* Variables para texto (4) */
   --text-title: var(--dark-blue);
   --text-body: var(--dark-gray);
@@ -47,32 +44,9 @@ html {
 
   --logo-primary-inverse: var(--light-gray);
   --logo-secondary-inverse: var(--white);
-}
 
-[data-theme='dark'] {
-  /* Dark Theme - Inverso del claro */
-  /* Variables para texto (4) */
-  --text-title: var(--white);
-  --text-body: var(--light-gray);
-  --text-muted: var(--light-gray);
-  --text-inverse: var(--black);
-
-  /* Variables para borde (2) */
-  --border-default: var(--light-gray);
-  --border-light: var(--dark-gray);
-  --border-accent: var(--light-blue);
-
-  /* Variables para fondos (4) */
-  --bg-main: var(--black);
-  --bg-alt: var(--dark-gray);
-  --bg-dark: var(--medium-gray);
-  --bg-accent: var(--white);
-
-  --logo-primary: var(--white);
-  --logo-secondary: var(--white);
-
-  --logo-primary-inverse: var(--dark-gray);
-  --logo-secondary-inverse: var(--black);
+  --layout-max-width: 1280px;
+  --layout-horizontal-padding: 1.5rem;
 }
 
 @theme {
@@ -109,17 +83,26 @@ html {
   --spacing-element: 1.5rem;
 
   /* Typography Responsive - Mobile first */
-  --text-size-hero: 2.5rem;
-  --text-size-title: 2rem;
-  --text-size-subtitle: 1.1rem;
+  --text-size-hero: 1.75rem;
+  --text-size-title: 1.75rem;
+  --text-size-subtitle: 1rem;
 }
 
 /* Desktop Responsive Variables */
 @media (min-width: 768px) {
   @theme {
-    --text-size-hero: 5rem;
-    --text-size-title: 2.5rem;
-    --text-size-subtitle: 1.5rem;
+    --text-size-hero: 4rem;
+    --text-size-title: 2.4rem;
+    --text-size-subtitle: 1.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --spacing-section: 1.5rem;
+    --spacing-container: 1.5rem;
+    --spacing-element: 1rem;
+    --layout-horizontal-padding: 1rem;
   }
 }
 
@@ -215,8 +198,8 @@ html {
 /* Estilo base para stickers con efecto iridiscente */
 .sticker-iridescent {
   position: relative;
-  border-radius: 50%;
-  border: 4px solid var(--black);
+  border-radius: 10px;
+  transform: rotate(-10deg);
   box-shadow: 0 0 0 6px white, 0 8px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
   overflow: hidden;
@@ -231,21 +214,33 @@ body {
 }
 
 /* Agregar margen superior cuando el banner esté presente */
-body:has(.event-banner) main,
-body:has(.event-banner) .header {
-  margin-top: 40px;
+body:has(.event-banner) {
+  padding-top: 40px;
+}
+
+body:has(.event-banner) .header,
+body:has(.event-banner) .header-detail {
+  top: 40px;
 }
 
 @media (max-width: 768px) {
-  body:has(.event-banner) main,
-  body:has(.event-banner) .header {
-    margin-top: 35px;
+  body:has(.event-banner) {
+    padding-top: 35px;
+  }
+
+  body:has(.event-banner) .header,
+  body:has(.event-banner) .header-detail {
+    top: 35px;
   }
 }
 
 @media (max-width: 480px) {
-  body:has(.event-banner) main,
-  body:has(.event-banner) .header {
-    margin-top: 32px;
+  body:has(.event-banner) {
+    padding-top: 32px;
+  }
+
+  body:has(.event-banner) .header,
+  body:has(.event-banner) .header-detail {
+    top: 32px;
   }
 }

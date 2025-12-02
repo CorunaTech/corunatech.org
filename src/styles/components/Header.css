@@ -1,15 +1,29 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
-  margin: 0 auto;
-  display: grid;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
   width: 100%;
+  padding: var(--spacing-element) 0;
+  background-color: var(--bg-main);
+  backdrop-filter: blur(8px);
+  transition: padding 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header-inner {
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--layout-horizontal-padding);
+  display: grid;
   grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto;
   align-items: flex-start;
-  padding: var(--spacing-element);
+  row-gap: var(--spacing-element);
 }
 
 .header-top {
@@ -40,11 +54,13 @@
 .header-logo-link {
   justify-self: center;
   grid-column: 2;
+  grid-row: 2;
 }
 
 .header-logo {
-  height: 10rem;
+  height: 12rem;
   width: auto;
+  transition: height 0.3s ease;
 }
 
 .header-right {
@@ -62,21 +78,43 @@
   justify-self: flex-start;
 }
 
-.header-theme-toggle {
-  display: flex;
+.header.is-compact {
+  padding: calc(var(--spacing-element) * 0.5) 0;
+}
+
+.header.is-compact .header-logo {
+  height: 3.5rem;
+}
+
+.header.is-compact .header-inner {
+  grid-template-rows: auto;
+  row-gap: 0;
   align-items: center;
-  gap: 1.5rem;
-  justify-self: flex-start;
+}
+
+.header.is-compact .header-logo-link {
+  grid-row: 1;
+  align-self: center;
+}
+
+.header.is-compact .header-nav,
+.header.is-compact .header-right {
+  align-self: center;
 }
 
 /* Mobile responsive adjustments */
 @media (max-width: 767px) {
   .header {
+    padding: 1rem 0;
+  }
+
+  .header-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding: 1rem;
+    width: 100%;
+    padding: 0 var(--layout-horizontal-padding);
   }
 
   .header-top {
@@ -127,5 +165,24 @@
 
   .header-logo {
     height: 8rem;
+  }
+
+  .header.is-compact {
+    padding: 0.75rem 0;
+  }
+
+  .header.is-compact .header-logo {
+    height: 3.5rem;
+  }
+
+  .header.is-compact .header-inner {
+    gap: 1rem;
+  }
+
+  .header.is-released {
+    transform: translateY(-110%);
+    opacity: 0;
+    backdrop-filter: none;
+    pointer-events: none;
   }
 }

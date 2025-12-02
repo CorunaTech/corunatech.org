@@ -3,7 +3,6 @@ import '../styles/global.css'
 import '../styles/layouts/BaseLayout.css'
 import Footer from '../components/Footer.astro'
 import EventBanner from '../components/EventBanner.astro'
-import ThemeScript from '../components/ThemeScript.astro'
 import { buildImageUrl, getDefaultImage } from '../utils/url-utils'
 import { FAVICON_PATHS } from '../utils/constants'
 
@@ -68,13 +67,13 @@ const imageUrl = buildImageUrl(siteUrl, image)
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={imageUrl} />
-
-    <ThemeScript />
   </head>
   <body>
     <EventBanner />
-    <slot name="header" />
-    <slot />
+    <div class="layout-content">
+      <slot name="header" />
+      <slot />
+    </div>
     <Footer />
   </body>
 </html>

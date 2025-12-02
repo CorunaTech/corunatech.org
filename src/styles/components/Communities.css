@@ -41,6 +41,12 @@
   gap: var(--spacing-element);
 }
 
+@media (max-width: 640px) {
+  .communities-section {
+    padding: 0;
+  }
+}
+
 @media (min-width: 768px) {
   .communities-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

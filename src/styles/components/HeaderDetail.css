@@ -1,17 +1,29 @@
 .header-detail {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 900;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
+  width: 100%;
   background-color: var(--bg-dark);
   color: var(--text-inverse);
+  transition: padding 0.3s ease;
 
   --logo-primary: var(--logo-primary-inverse);
   --logo-secondary: var(--logo-secondary-inverse);
+}
+
+.header-detail-inner {
+  width: min(100%, var(--layout-max-width));
+  margin: 0 auto;
+  padding: 0 var(--layout-horizontal-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-detail-logo-link {
@@ -22,13 +34,13 @@
 .header-detail-logo {
   width: 5rem;
   height: auto;
+  transition: width 0.3s ease;
 }
 
-.header-detail-right {
-  display: flex;
-  align-items: center;
+.header-detail.is-compact {
+  padding: 0.75rem 0;
 }
 
-.header-detail-theme-toggle {
-  margin-left: 1rem;
+.header-detail.is-compact .header-detail-logo {
+  width: 2.75rem;
 }
