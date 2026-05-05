@@ -1,0 +1,7 @@
+title: "ESPHome + Home Assistant: domótica sin nube y sin magia"
+description: Vamos a montar domótica de verdad usando Home Assistant y ESPHome. Veremos cómo flashear un ESP32, integrar sensores, crear automatizaciones locales y acceder de forma remota sin cargarte la seguridad. Lo veremos con demos en vivo y código real.
+date: 2026-01-30T19:00:00+01:00
+location: Facultade de Informática UDC, A Coruña
+rsvpLink: https://gpul.org/eventos/2026/homeassistant-esphome
+tags: [homeassistant, esphome, esp32, domotica, iot, hardware-libre]
+community: gpul
