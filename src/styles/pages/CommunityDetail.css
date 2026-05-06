@@ -235,6 +235,33 @@
   opacity: 0.8;
 }
 
+.events-hidden-item {
+  display: none;
+}
+
+.events-hidden-item--visible {
+  display: contents;
+}
+
+.events-toggle-btn {
+  display: block;
+  margin: 0 auto var(--spacing-section);
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--bg-dark);
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  color: var(--text-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.events-toggle-btn:hover {
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+}
+
 /* Responsive: Por debajo de 1024px, metadata ocupa espacio completo */
 @media (max-width: 1023px) {
   .community-metadata {

@@ -1,6 +1,10 @@
 name: CoruñaWTF
-description: Comunidade tech informal da Coruña. Organizamos charlas técnicas relaxadas sobre tecnoloxías emerxentes, experiencias profesionais e temas diversos do mundo tech.
+description: Somos a comunidade da Coruña que se reúne para falar sobre desenvolvemento e deseño web. Os nosos obxectivos principais son aprender e compartir o que sabemos, coñecer xente e montar unha comunidade arredor da web e divertirnos durante o proceso :)
+website: https://corunawtf.github.io/page
 logo: https://github.com/corunawtf.png
+socials:
+  - name: X
+    url: https://x.com/corunawtf
 tags: [comunidade, networking, tech-talks, experiencias]
 technologies: [Variadas, Frontend, Mobile]
 meetingFrequency: Mensual

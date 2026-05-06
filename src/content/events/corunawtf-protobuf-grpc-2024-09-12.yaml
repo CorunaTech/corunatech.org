@@ -1,0 +1,8 @@
+title: "PROTOBUF Y gRPC: Introducción a schema-driven development"
+description: Charla introdutoria sobre Protocol Buffers e gRPC. Descubre como o desenvolvemento orientado a schemas mellora a comunicación entre servizos e a consistencia das APIs.
+date: 2024-09-12T19:30:00+02:00
+endDate: 2024-09-12T21:30:00+02:00
+location: Sngular Stage Atlántico, A Coruña
+rsvpLink: https://www.eventbrite.es/e/entradas-protobuf-y-grpc-introduccion-a-schema-driven-development-998635434467
+tags: [protobuf, grpc, backend, apis, schema-driven]
+community: coruna-wtf

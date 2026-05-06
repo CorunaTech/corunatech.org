@@ -4,6 +4,7 @@ import EventCard from '../eventCard/EventCard.astro'
 
 export interface Props extends CommunityEventSection {
   communityName: string
+  initialLimit?: number
 }
 
 const {
@@ -11,29 +12,70 @@ const {
   events,
   emptyMessage,
   isPast = false,
-  communityName
+  communityName,
+  initialLimit = isPast ? 6 : undefined
 } = Astro.props
+
+const hasMore = initialLimit !== undefined && events.length > initialLimit
+const visibleEvents = initialLimit ? events.slice(0, initialLimit) : events
+const hiddenEvents = initialLimit ? events.slice(initialLimit) : []
 ---
 
 <div class="events-section">
   <h2>{title}</h2>
   {
     events.length > 0 ? (
-      <div class:list={['events-list', { 'past-events': isPast }]}>
-        {events.map(event => (
-          <EventCard
-            title={event.data.title}
-            description={event.data.description}
-            date={event.data.date}
-            location={event.data.location}
-            rsvpLink={isPast ? undefined : event.data.rsvpLink}
-            tags={event.data.tags}
-            communityName={communityName}
-          />
-        ))}
-      </div>
+      <>
+        <div class:list={['events-list', { 'past-events': isPast }]}>
+          {visibleEvents.map(event => (
+            <EventCard
+              title={event.data.title}
+              description={event.data.description}
+              date={event.data.date}
+              location={event.data.location}
+              rsvpLink={isPast ? undefined : event.data.rsvpLink}
+              tags={event.data.tags}
+              communityName={communityName}
+            />
+          ))}
+          {hiddenEvents.map(event => (
+            <div class="events-hidden-item">
+              <EventCard
+                title={event.data.title}
+                description={event.data.description}
+                date={event.data.date}
+                location={event.data.location}
+                rsvpLink={isPast ? undefined : event.data.rsvpLink}
+                tags={event.data.tags}
+                communityName={communityName}
+              />
+            </div>
+          ))}
+        </div>
+        {hasMore && (
+          <button class="events-toggle-btn" data-label-more={`Ver todos (${events.length})`} data-label-less="Ver menos">
+            Ver todos ({events.length})
+          </button>
+        )}
+      </>
     ) : (
       <p class="no-events">{emptyMessage}</p>
     )
   }
 </div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.events-toggle-btn').forEach(btn => {
+    const list = btn.previousElementSibling as HTMLElement
+    const hidden = list?.querySelectorAll<HTMLElement>('.events-hidden-item')
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true'
+      btn.setAttribute('aria-expanded', String(!expanded))
+      hidden?.forEach(el => el.classList.toggle('events-hidden-item--visible', !expanded))
+      btn.textContent = !expanded
+        ? (btn.dataset.labelLess ?? 'Ver menos')
+        : (btn.dataset.labelMore ?? 'Ver todos')
+    })
+  })
+</script>
