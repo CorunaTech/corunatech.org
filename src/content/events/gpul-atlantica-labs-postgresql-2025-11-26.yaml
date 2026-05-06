@@ -1,0 +1,7 @@
+title: "PostgreSQL: Lo que me gustaría saber antes de usarla"
+description: "En esta charla veremos cómo no utilizar PostgreSQL: problemas encontrados por un mal diseño de patrones de acceso a datos y cómo solucionarlos después de entender los internals de PostgreSQL (índices, análisis de consultas y optimización). Se expondrán casos prácticos reales donde veremos incrementos de rendimiento después de aplicar las optimizaciones necesarias."
+date: 2025-11-26T19:00:00+01:00
+location: DEUS, A Coruña
+rsvpLink: https://www.meetup.com/es-ES/gpul-labs/events/310341524/
+tags: [postgresql, bases-de-datos, rendimiento, sql, atlántica-labs]
+community: gpul
