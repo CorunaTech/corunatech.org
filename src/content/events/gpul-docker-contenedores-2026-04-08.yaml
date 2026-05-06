@@ -1,0 +1,7 @@
+title: Facilitando el despliegue de servicios a través de contenedores
+description: En esta charla aprenderás a usar Docker desde cero, abarcando todos los conceptos clave necesarios. También conocerás Docker Compose, que permite desplegar de forma fácil y sencilla cualquier tipo de servicio mediante un solo archivo.
+date: 2026-04-08T19:00:00+02:00
+location: Facultade de Informática UDC, A Coruña
+rsvpLink: https://gpul.org/eventos/2026/docker
+tags: [docker, contenedores, devops, despliegue, docker-compose]
+community: gpul

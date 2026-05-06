@@ -1,0 +1,7 @@
+title: "Introducción a Nix & NixOS"
+description: Nix es una herramienta que tiene un enfoque único sobre la gestión de paquetes y configuración de sistemas. Permitiendo que estos sean reproducibles y declarativos.
+date: 2025-12-16T17:00:00+01:00
+location: Facultade de Informática UDC, A Coruña
+rsvpLink: https://gpul.org/eventos/2025/nixos
+tags: [nix, nixos, linux, paquetes, reproducible]
+community: gpul
