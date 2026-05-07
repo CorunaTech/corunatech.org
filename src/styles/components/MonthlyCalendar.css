@@ -266,6 +266,52 @@
   opacity: 0.85;
 }
 
+.calendar-event__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-event__logo {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.calendar-event__logo-fallback {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--border-dark);
+  color: var(--text-inverse);
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.calendar-event__time {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+
+.calendar-event__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .calendar-event-overflow {
   padding: 0.35rem 0.6rem;
   border-radius: var(--border-radius-full);
@@ -398,6 +444,13 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-dark);
+    margin-inline: calc(-1 * var(--spacing-container));
+    padding-inline: var(--spacing-container);
+    padding-block: 0.75rem;
   }
 
   .calendar-nav {

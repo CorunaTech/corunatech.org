@@ -5,6 +5,7 @@ export type CalendarEventItem = {
   title: string
   community: string
   communityName: string
+  communityLogo?: string
   description: string
   location?: string
   duration?: string
@@ -58,4 +59,5 @@ export type PreparedGroup = {
 export type CalendarProps = {
   events: CollectionEntry<'events'>[]
   communityNames: Record<string, string>
+  communityLogos?: Record<string, string>
 }

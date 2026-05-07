@@ -35,15 +35,37 @@ const buttonProps = isButton
   {
     isButton ? (
       <button type="button" {...commonProps} {...buttonProps}>
-        <span class="calendar-event-title">
-          {event.communityName} • {event.timeLabel}
+        <span class="calendar-event__header">
+          {event.communityLogo ? (
+            <img
+              src={event.communityLogo}
+              alt={event.communityName}
+              class="calendar-event__logo"
+              loading="lazy"
+            />
+          ) : (
+            <span class="calendar-event__logo-fallback">{event.communityName.charAt(0)}</span>
+          )}
+          <span class="calendar-event__time">{event.timeLabel}</span>
         </span>
+        <span class="calendar-event__title">{event.title}</span>
       </button>
     ) : (
       <a href={href} {...commonProps}>
-        <span class="calendar-event-title">
-          {event.communityName} • {event.timeLabel}
+        <span class="calendar-event__header">
+          {event.communityLogo ? (
+            <img
+              src={event.communityLogo}
+              alt={event.communityName}
+              class="calendar-event__logo"
+              loading="lazy"
+            />
+          ) : (
+            <span class="calendar-event__logo-fallback">{event.communityName.charAt(0)}</span>
+          )}
+          <span class="calendar-event__time">{event.timeLabel}</span>
         </span>
+        <span class="calendar-event__title">{event.title}</span>
       </a>
     )
   }
