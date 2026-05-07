@@ -14,7 +14,7 @@ import WeekView from './calendar/WeekView.astro'
 
 export interface Props extends CalendarProps {}
 
-const { events, communityNames } = Astro.props
+const { events, communityNames, communityLogos } = Astro.props
 
 const baseUrl = import.meta.env.BASE_URL ?? '/'
 const now = new Date()
@@ -23,7 +23,7 @@ const { rangeStart, rangeEnd } = calculateDateRange(events, now)
 const monthKeys = generateMonthKeys(rangeStart, rangeEnd)
 
 const { months, allWeeks, initialMonthIndex, initialWeekIndex } =
-  createCalendarData(events, communityNames, now, monthKeys)
+  createCalendarData(events, communityNames, now, monthKeys, communityLogos)
 
 const initialLabel =
   months[initialMonthIndex]?.navLabel ??

@@ -23,7 +23,8 @@ export const createMonthData = (
   eventsByMonth: Map<string, CollectionEntry<'events'>[]>,
   communityNames: Record<string, string>,
   now: Date,
-  todayKey: string
+  todayKey: string,
+  communityLogos?: Record<string, string>
 ): MonthData => {
   const key = buildMonthKey(year, month)
   const firstDay = new Date(year, month, 1)
@@ -53,6 +54,7 @@ export const createMonthData = (
         community: event.data.community,
         communityName:
           communityNames[event.data.community] ?? event.data.community,
+        communityLogo: communityLogos?.[event.data.community],
         description: event.data.description,
         location: event.data.location,
         duration: event.data.duration,
@@ -137,7 +139,8 @@ export const createCalendarData = (
   events: CollectionEntry<'events'>[],
   communityNames: Record<string, string>,
   now: Date,
-  monthKeys: string[]
+  monthKeys: string[],
+  communityLogos?: Record<string, string>
 ) => {
   const todayKey = buildKey(now.getFullYear(), now.getMonth(), now.getDate())
 
@@ -159,7 +162,8 @@ export const createCalendarData = (
       eventsByMonth,
       communityNames,
       now,
-      todayKey
+      todayKey,
+      communityLogos
     )
   })
 

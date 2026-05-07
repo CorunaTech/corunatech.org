@@ -9,11 +9,16 @@ const communityMap = new Map(
   communities.map(community => [community.id, community.data.name])
 )
 const communityNames = Object.fromEntries(communityMap)
+const communityLogos = Object.fromEntries(
+  communities
+    .filter(c => c.data.logo)
+    .map(c => [c.id, c.data.logo as string])
+)
 ---
 
 <section class="events-section" id="eventos">
   <div class="events-container">
-    <MonthlyCalendar events={allEvents} communityNames={communityNames} />
+    <MonthlyCalendar events={allEvents} communityNames={communityNames} communityLogos={communityLogos} />
   </div>
 
   <!-- Tooltip to show event details -->
