@@ -1,48 +1,48 @@
 ---
-description: 'Usar cuando se añade una nueva comunidad tecnológica al proyecto. Cubre la estructura del YAML, validaciones del schema, convenciones de slug y campos obligatorios.'
+description: 'Use when adding a new tech community to the project. Covers YAML structure, schema validations, slug conventions and required fields.'
 applyTo: 'src/content/communities/**/*.yaml'
 ---
 
-# Añadir una nueva comunidad
+# Adding a new community
 
-## Ubicación
+## Location
 
-Crear el fichero en `src/content/communities/<slug>.yaml`.
+Create the file at `src/content/communities/<slug>.yaml`.
 
-## Reglas del slug
+## Slug rules
 
-- Debe ser **kebab-case** y único (ej: `python-coruna`, `coruna-jug`)
-- Sin tildes ni caracteres especiales
-- El slug coincide con el nombre del fichero sin extensión
+- Must be **kebab-case** and unique (e.g. `python-coruna`, `coruna-jug`)
+- No accents or special characters
+- The slug matches the filename without the extension
 
-## Estructura completa
+## Full structure
 
 ```yaml
-name: Nombre Oficial de la Comunidad # obligatorio
-description: Descripción de la comunidad # obligatorio
-website: https://... # opcional, URL válida
-logo: https://... # opcional, URL de imagen
-socials: # opcional
+name: Official Community Name # required
+description: Community description # required
+website: https://... # optional, valid URL
+logo: https://... # optional, image URL
+socials: # optional
   - name: Twitter
     url: https://x.com/...
   - name: GitHub
     url: https://github.com/...
-tags: [tag1, tag2] # obligatorio, array de strings en minúscula
-technologies: [Tech1, Tech2] # opcional, nombres de tecnologías
-meetingFrequency: Mensual # opcional: "Semanal", "Quincenal", "Mensual"
-contactEmail: contacto@ejemplo.com # opcional, email válido
+tags: [tag1, tag2] # required, lowercase string array
+technologies: [Tech1, Tech2] # optional, technology names
+meetingFrequency: Monthly # optional: "Weekly", "Biweekly", "Monthly"
+contactEmail: contact@example.com # optional, valid email
 ```
 
-## Validaciones automáticas (Zod)
+## Automatic validations (Zod)
 
-- `name` y `description` son requeridos
-- `website` y `rsvpLink` deben ser URLs válidas si se proporcionan
-- `contactEmail` debe ser email válido si se proporciona
-- `tags` debe ser un array no vacío
-- El schema completo está en `src/content/config.ts`
+- `name` and `description` are required
+- `website` and `rsvpLink` must be valid URLs if provided
+- `contactEmail` must be a valid email if provided
+- `tags` must be a non-empty array
+- Full schema is in `src/content/config.ts`
 
-## Después de añadir
+## After adding
 
-- La comunidad aparecerá automáticamente en la sección "Comunidades" del index
-- Se genera una ruta `/communities/<slug>` automáticamente via `pages/communities/[slug].astro`
-- No es necesario modificar ningún fichero de código
+- The community will appear automatically in the "Communities" section of the index
+- A route `/communities/<slug>` is generated automatically via `pages/communities/[slug].astro`
+- No code files need to be modified

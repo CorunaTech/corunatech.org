@@ -1,57 +1,69 @@
 ---
-description: 'Usar cuando se añade un nuevo evento a una comunidad. Cubre la estructura del YAML, formato de fechas ISO 8601, referencia a la comunidad y convenciones de slug.'
+description: 'Use when adding a new event to a community. Covers YAML structure, ISO 8601 date format, community reference and slug conventions.'
 applyTo: 'src/content/events/**/*.yaml'
 ---
 
-# Añadir un nuevo evento
+# Adding a new event
 
-## Ubicación
+## Location
 
-Crear el fichero en `src/content/events/<slug>.yaml`.
+Create the file at `src/content/events/<slug>.yaml`.
 
-## Convención de slug
+## Slug convention
 
-- **Formato recomendado**: `<comunidad>-<descripcion>-<fecha>`, ej: `gpul-installparty-2025-10-01`
-- Kebab-case, sin tildes ni caracteres especiales
+- **Recommended format**: `<community>-<description>-<date>`, e.g. `gpul-installparty-2025-10-01`
+- Kebab-case, no accents or special characters
 
-## Estructura completa
+## Full structure
 
 ```yaml
-title: Título del evento # obligatorio
-description: Descripción del evento # obligatorio
-date: 2025-10-01T10:00:00Z # obligatorio, ISO 8601
-endDate: 2025-10-01T14:00:00Z # opcional, ISO 8601
-duration: '2h' # opcional, ej: "2h", "90min", "1h30min"
-location: Nombre del lugar o dirección # opcional
-rsvpLink: https://... # opcional, URL de registro
-tags: [tag1, tag2] # obligatorio, array en minúscula kebab-case
-community: slug-de-la-comunidad # obligatorio, debe coincidir con el slug del YAML de comunidad
+title: Event title # required — quote if it contains colons (e.g. "Title: subtitle")
+description: Event description # required
+date: 2025-10-01T10:00:00Z # required, ISO 8601
+endDate: 2025-10-01T14:00:00Z # optional, ISO 8601
+duration: '2h' # optional, e.g. "2h", "90min", "1h30min"
+location: Venue name or address # optional
+rsvpLink: https://... # optional, registration URL
+tags: [tag1, tag2] # required, lowercase kebab-case array
+community: community-slug # required, must match the community YAML slug
 ```
 
-## Regla crítica: campo `community`
+## Critical rule: `community` field
 
-El valor de `community` **debe coincidir exactamente** con el nombre del fichero YAML de la comunidad (sin la extensión `.yaml`).
+The `community` value **must match exactly** the community YAML filename (without the `.yaml` extension).
 
 ```yaml
-# ✅ Correcto — existe src/content/communities/gpul.yaml
+# ✅ Correct — src/content/communities/gpul.yaml exists
 community: gpul
 
-# ✅ Correcto — existe src/content/communities/python-coruna.yaml
+# ✅ Correct — src/content/communities/python-coruna.yaml exists
 community: python-coruna
 
-# ❌ Incorrecto — no hay fichero con ese nombre
+# ❌ Wrong — no file with that name
 community: GPUL
 community: python_coruna
 ```
 
-## Formato de fechas
+## Date format
 
-- Usar siempre ISO 8601 con zona horaria explícita
-- Eventos en España: `T10:00:00Z` (UTC) o `T10:00:00+02:00` (CEST verano)
+- Always use ISO 8601 with explicit timezone
+- Events in Spain: `T10:00:00Z` (UTC) or `T10:00:00+02:00` (CEST summer)
 
-## Después de añadir
+## Title with colons
 
-- El evento aparece en la sección "Eventos" del index si la fecha es futura
-- Aparece en la página de la comunidad correspondiente
-- Los eventos pasados se muestran en el historial de la comunidad
-- La clasificación futuros/pasados se hace comparando con la fecha actual en `src/utils/date-utils.ts`
+If the title contains a colon (`:`) followed by a space, it must be quoted, otherwise YAML will fail to parse:
+
+```yaml
+# ✅ Correct
+title: "Advanced terminal: bash scripting"
+
+# ❌ Wrong — YAML parse error
+title: Advanced terminal: bash scripting
+```
+
+## After adding
+
+- The event appears in the "Events" section of the index if the date is in the future
+- It appears on the corresponding community page
+- Past events are shown in the community history
+- Future/past classification is done by comparing against the current date in `src/utils/date-utils.ts`

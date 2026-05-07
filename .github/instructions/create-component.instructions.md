@@ -1,105 +1,105 @@
 ---
-description: 'Usar cuando se crea o modifica un componente Astro. Cubre la estructura obligatoria, convención de ficheros CSS separados, nomenclatura BEM, tipado de props y variables CSS disponibles.'
+description: 'Use when creating or modifying an Astro component. Covers required structure, separate CSS file convention, BEM naming, props typing and available CSS variables.'
 applyTo: 'src/components/**/*.astro'
 ---
 
-# Crear o modificar componentes Astro
+# Creating or modifying Astro components
 
-## Estructura de un componente
+## Component structure
 
 ```astro
 ---
-// 1. Importar el CSS del componente (SIEMPRE primero)
-import '../styles/components/MiComponente.css'
+// 1. Import the component CSS (ALWAYS first)
+import '../styles/components/MyComponent.css'
 
-// 2. Importar otros componentes si los hay
-import OtroComponente from './OtroComponente.astro'
+// 2. Import other components if needed
+import OtherComponent from './OtherComponent.astro'
 
-// 3. Tipar las props con una interfaz local
+// 3. Type props with a local interface
 interface Props {
-  titulo: string
-  descripcion?: string
+  title: string
+  description?: string
 }
 
-const { titulo, descripcion } = Astro.props
+const { title, description } = Astro.props
 ---
 
-<section class="mi-componente">
-  <h2 class="mi-componente__titulo">{titulo}</h2>
-  {descripcion && <p class="mi-componente__descripcion">{descripcion}</p>}
+<section class="my-component">
+  <h2 class="my-component__title">{title}</h2>
+  {description && <p class="my-component__description">{description}</p>}
 </section>
 ```
 
-## Regla del CSS separado
+## Separate CSS rule
 
-**Cada componente tiene su propio fichero CSS.**
+**Each component has its own CSS file.**
 
-| Componente                                  | CSS                                                      |
-| ------------------------------------------- | -------------------------------------------------------- |
-| `src/components/MiComponente.astro`         | `src/styles/components/MiComponente.css`                 |
-| `src/components/calendar/CalendarDay.astro` | `src/styles/components/CalendarDay.css` (si lo necesita) |
+| Component                                   | CSS                                                        |
+| ------------------------------------------- | ---------------------------------------------------------- |
+| `src/components/MyComponent.astro`          | `src/styles/components/MyComponent.css`                    |
+| `src/components/calendar/CalendarDay.astro` | `src/styles/components/CalendarDay.css` (if needed)        |
 
-- El CSS se importa **siempre en el frontmatter** del componente, no en el `<style>` tag
-- No usar `<style>` tags en componentes Astro — todo el CSS va en el fichero separado
+- CSS is imported **always in the frontmatter**, not in a `<style>` tag
+- Do not use `<style>` tags in Astro components — all CSS goes in the separate file
 
-## Nomenclatura BEM
+## BEM naming
 
 ```css
-/* Bloque */
-.mi-componente {
+/* Block */
+.my-component {
 }
 
-/* Elemento */
-.mi-componente__titulo {
+/* Element */
+.my-component__title {
 }
-.mi-componente__descripcion {
+.my-component__description {
 }
 
-/* Modificador */
-.mi-componente--destacado {
+/* Modifier */
+.my-component--featured {
 }
-.mi-componente__titulo--grande {
+.my-component__title--large {
 }
 ```
 
-## Variables CSS disponibles
+## Available CSS variables
 
-Definidas en `src/styles/global.css`:
+Defined in `src/styles/global.css`:
 
 ```css
 /* Layout */
 --layout-max-width
 --layout-horizontal-padding
 
-/* Colores */
---bg-main          /* fondo principal */
---bg-dark          /* fondo oscuro */
---text-body        /* texto principal */
---text-inverse     /* texto sobre fondo oscuro */
+/* Colors */
+--bg-main          /* main background */
+--bg-dark          /* dark background */
+--text-body        /* main text */
+--text-inverse     /* text on dark background */
 
-/* Tipografía */
+/* Typography */
 --font-sans
 
-/* Logo (solo en contextos con logo) */
+/* Logo (only in logo contexts) */
 --logo-primary
 --logo-secondary
 --logo-primary-inverse
 --logo-secondary-inverse
 ```
 
-## Clases de Tailwind
+## Tailwind classes
 
-**No usar clases de Tailwind en los templates de componentes.** Tailwind se usa como herramienta de configuración/reset, no como sistema de clases utilitarias. Toda la lógica de estilos va en CSS vanilla dentro del fichero CSS del componente.
+**Do not use Tailwind classes in component templates.** Tailwind is used as a configuration/reset tool, not as a utility class system. All styling logic goes in vanilla CSS inside the component's CSS file.
 
-## Idioma en la UI
+## UI language
 
-- Todos los textos visibles al usuario deben estar en **gallego** (`gl`)
-- Usar `SITE_CONFIG.LOCALE` para formateo de fechas con `Intl.DateTimeFormat`
-- Los mensajes de estado vacío siguen el patrón del resto: "Non se atoparon..."
+- All user-visible text must be in **Galician** (`gl`)
+- Use `SITE_CONFIG.LOCALE` for date formatting with `Intl.DateTimeFormat`
+- Empty state messages follow the existing pattern: "Non se atoparon..."
 
-## Tipos reutilizables
+## Reusable types
 
-Antes de definir interfaces locales complejas, revisar `src/types/`:
+Before defining complex local interfaces, check `src/types/`:
 
-- `src/types/community.ts` — tipos para comunidades y sus props
-- `src/types/calendar.ts` — tipos para el calendario
+- `src/types/community.ts` — types for communities and their props
+- `src/types/calendar.ts` — types for the calendar
